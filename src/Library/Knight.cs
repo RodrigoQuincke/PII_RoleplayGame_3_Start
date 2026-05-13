@@ -3,78 +3,21 @@ using System.Collections.Generic;
 
 namespace Ucu.Poo.RolePlayGame
 {
-    public class Knight : ICharacter
+    public class Knight : Heroes
     {
-        public string Name { get; }
-        public int AttackValue { get; }
-        private int DefenseValue { get; }
-        private int InitialHealth { get; }
-        public int Health { get; private set; }
-        public List<IItem> Equipment { get; private set; }
-
+        public Sword Sword { get; private set; }
+        public Shield Shield { get; private set; }
+        public Armor Armor { get; private set; }
 
         public Knight(string name)
+            : base(name, 150, 100, 300)
         {
-            this.Name = name;
-            this.AttackValue = 150;
-            this.DefenseValue = 100;
-            this.InitialHealth = 300;
-            this.Health = this.InitialHealth;
-            this.Equipment = new List<IItem>();
-            this.Equipment.Add(new Sword("Sword", 50));
-            this.Equipment.Add(new Shield("Shield", 20));
-            this.Equipment.Add(new Armor("Armor", 50));
-        }
-
-        public void ReceiveAttack(ICharacter attacker)
-        {
-            int actualDamage = attacker.GetTotalAttack() - this.GetTotalDefense();
-            if (actualDamage > 0)
-            {
-                this.Health -= actualDamage;
-            }
-        }
-
-        public void Cure()
-        {
-            this.Health = this.InitialHealth;
-        }
-
-        public void AddItem(IItem item)
-        {
-            this.Equipment.Add(item);
-        }
-
-        public void RemoveItem(IItem item)
-        {
-            this.Equipment.Remove(item);
-        }
-        public int GetTotalAttack()
-        {
-            int total = this.AttackValue;
-            foreach (IItem item in this.Equipment)
-            {
-                if (item is IOffensiveItem)
-                {
-                    IOffensiveItem offensiveItem = (IOffensiveItem)item;
-                    total += offensiveItem.AttackValue;
-                }
-            }
-            return total;
-        }
-
-        public int GetTotalDefense()
-        {
-            int total = this.DefenseValue;
-            foreach (IItem item in this.Equipment)
-            {
-                if (item is IDefensiveItem)
-                {
-                    IDefensiveItem defensiveItem = (IDefensiveItem)item;
-                    total += defensiveItem.DefenseValue;
-                }
-            }
-            return total;
+            this.Sword = new Sword("Sword", 50);
+            this.Shield = new Shield("Shield", 20);
+            this.Armor = new Armor("Armor", 50);
+            this.Equipment.Add(this.Sword);
+            this.Equipment.Add(this.Shield);
+            this.Equipment.Add(this.Armor);
         }
     }
 }

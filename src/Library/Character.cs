@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace Ucu.Poo.RolePlayGame
 {
-    public class Character: ICharacter
+    public class Character : ICharacter
     {
         public string Name {get; }
         public int AttackValue {get; } 
-        private int DefenseValue {get; }
-        private int InitialHealth {get; }
+        protected int DefenseValue {get; }
+        protected int InitialHealth {get; }
         public int Health {get; private set; }
         public List<IItem> Equipment { get; private set; }
 
