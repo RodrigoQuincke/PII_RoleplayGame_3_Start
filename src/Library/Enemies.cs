@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace Ucu.Poo.RolePlayGame
 {
     public abstract class Enemies : Character, IEnemies
@@ -7,7 +10,7 @@ namespace Ucu.Poo.RolePlayGame
         protected Enemies(string name, int attackValue, int defenseValue, int initialHealth, int victoryPoints)
             : base(name, attackValue, defenseValue, initialHealth)
         {
-            VictoryPoints = victoryPoints;
+            this.VictoryPoints = victoryPoints;
         }
     }
 }
