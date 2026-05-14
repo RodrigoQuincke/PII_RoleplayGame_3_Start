@@ -5,9 +5,9 @@ namespace Ucu.Poo.RolePlayGame
 {
     public class Knight : Heroes
     {
-        public Sword Sword { get; private set; }
-        public Shield Shield { get; private set; }
-        public Armor Armor { get; private set; }
+        public Sword Sword { get; private set; } 
+        public Shield Shield { get; private set; } 
+        public Armor Armor { get; private set; } 
 
         public Knight(string name)
             : base(name, 150, 100, 300)
