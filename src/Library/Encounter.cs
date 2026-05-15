@@ -74,8 +74,8 @@ namespace Ucu.Poo.RolePlayGame
             if (enemy.Health <= 0)
             {
                 Console.WriteLine($"{enemy.Name} ha sido derrotado por {hero.Name}.");
-                hero.AddVictoryPoints(enemy.VictoryPoints);
-                if (hero.VictoryPoints >= 5)
+                hero.AddVictoryPoints(enemy);
+                if (hero.AccumulatedVictoryPoints >= 5)
                     hero.Cure();
             }
         }
