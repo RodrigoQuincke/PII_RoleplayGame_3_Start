@@ -51,7 +51,7 @@ namespace Ucu.Poo.RolePlayGame.Tests
         public void TestAddItem_ValidItem()
         {
             wizard.AddItem(new Shield("Shield", 20));
-            Assert.That(wizard.Equipment, Has.Exactly(2).Items);
+            Assert.That(wizard.Equipment, Has.Exactly(3).Items);
         }
 
         [Test]
@@ -60,13 +60,16 @@ namespace Ucu.Poo.RolePlayGame.Tests
             IItem item = new Shield("Shield", 20);
             wizard.AddItem(item);
             wizard.RemoveItem(item);
-            Assert.That(wizard.Equipment, Has.Exactly(1).Items);
+            Assert.That(wizard.Equipment, Has.Exactly(2).Items);
         }
 
+        // Devuelve 100, 80 de ataque + 20 del arco
         [Test]
         public void TestGetTotalAttack()
         {
-            Assert.That(wizard.GetTotalAttack(), Is.EqualTo(160));
+            Bow item = new Bow("Bow", 20);
+            wizard.AddItem(item);
+            Assert.That(wizard.GetTotalAttack(), Is.EqualTo(100));
         }
         [Test]
         public void TestGetTotalDefense()

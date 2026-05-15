@@ -41,7 +41,7 @@ namespace Ucu.Poo.RolePlayGame.Tests
         public void TestAddItem_ValidItem()
         {
             elfo.AddItem(new Bow("Bow", 20));
-            Assert.That(elfo.Equipment, Has.Exactly(2).Items);
+            Assert.That(elfo.Equipment, Has.Exactly(1).Items);
         }
 
         [Test]
@@ -50,13 +50,16 @@ namespace Ucu.Poo.RolePlayGame.Tests
             Bow item = new Bow("Bow", 20);
             elfo.AddItem(item);
             elfo.RemoveItem(item);
-            Assert.That(elfo.Equipment, Has.Exactly(1).Items);
+            Assert.That(elfo.Equipment, Has.Exactly(0).Items);
         }
 
+        // Devuelve 70, 50 de ataque + 20 del arco
         [Test]
         public void TestGetTotalAttack()
         {
-            Assert.That(elfo.GetTotalAttack(), Is.EqualTo(120));
+            Bow item = new Bow("Bow", 20);
+            elfo.AddItem(item);
+            Assert.That(elfo.GetTotalAttack(), Is.EqualTo(70));
         }
         [Test]
         public void TestGetTotalDefense()
