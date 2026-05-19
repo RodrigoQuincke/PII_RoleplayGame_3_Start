@@ -14,7 +14,7 @@
 
 Este trabajo es la continuación del juego de rol que venimos desarrollando durante el curso. La idea central es simular encuentros de combate entre héroes y enemigos, donde cada personaje tiene atributos, items de ataque y defensa, y comportamientos propios.
 
-A lo largo del trabajo fuimos construyendo el sistema de a poco: primero modelamos los personajes, después los items, luego los enemigos, y finalmente el sistema de encuentros. Cada entrega se apoyó en la anterior, lo que nos obligó a pensar bien el diseño desde el principio para no tener que reescribir todo cada vez.
+A lo largo del trabajo fuimos construyendo el sistema y modificandolo con conceptos nuevos que fuimos aprendiendo en el curso: primero modelamos los personajes, después los items, luego los enemigos, y finalmente el sistema de encuentros. Cada entrega se apoyó en la anterior.
 
 ---
 
